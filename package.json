@@ -4,11 +4,15 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 9090",
+    "dev": "concurrently \"npm run website\" \"npm run directus\"",
+    "website": "vite --port 9090",
+    "directus": "cd directus-instance && npx directus start",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@directus/sdk": "^15.1.0",
+    "concurrently": "^8.2.2",
     "vue": "^3.4.21"
   },
   "devDependencies": {
